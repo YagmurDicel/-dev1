@@ -1,1 +1,47 @@
+package Yagmur;
+
+import java.util.Scanner;
+
+public class ödev {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] isimler = {"Ali", "Ayşe", "Fatma"};
+        double[] maaslar = new double[3];
+
+ 
+        for (int i = 0; i < isimler.length; i++) {
+            System.out.print(isimler[i] + " için aylık maaşını girin: ");
+            maaslar[i] = scanner.nextDouble();
+        }
+        System.out.println("\nAylık Harcama Detayları ve Tutarları:");
+        System.out.println("=======================================");
+        System.out.println("İsim\t| Ev Faturası\t| Diğer Harcamalar");
+        System.out.println("---------------------------------------");
+
+        double[][] harcamalar = new double[3][2]; 
+        for (int i = 0; i < isimler.length; i++) {
+            System.out.print(isimler[i] + "\t| ");
+            for (int j = 0; j < 2; j++) {
+                System.out.print("\t\t| ");
+                harcamalar[i][j] = scanner.nextDouble();
+            }
+        }
+        System.out.println("\nAylık Kalan Para:");
+        System.out.println("=================");
+        System.out.println("İsim\t| Kalan Para");
+        System.out.println("-----------------");
+        for (int i = 0; i < isimler.length; i++) {
+            double kalanPara = maaslar[i];
+            for (int j = 0; j < 2; j++) {
+                kalanPara -= harcamalar[i][j];
+            }
+            System.out.println(isimler[i] + "\t| " + kalanPara);
+        
+        }
+    }
+
+
+}
+
+
 
